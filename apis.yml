@@ -1,23 +1,127 @@
 aid: dock
 name: Dock
-description: 'Dock is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Dock is a Latin American financial technology infrastructure provider — formerly
+  Conductor Technology — that delivers card issuing and processing, core banking, digital
+  accounts and wallets, Pix instant payments, bank slips, acquiring, loyalty/benefits and
+  transactional anti-fraud from a single cloud-native platform marketed as Dock One. Dock
+  operates in Brazil as a payment institution regulated by the Banco Central do Brasil (bank
+  code 301) and states that it serves more than 400 companies across 11 countries, processes
+  roughly R$1.4 trillion in annual card volume and supports around 70 million active digital
+  accounts. Its API estate is branded Caradhras and is reached through the api.caradhras.io
+  gateway; the developer reference at developers.dock.tech is a private ReadMe hub that
+  redirects anonymous visitors to a login, and the previously public Caradhras reference at
+  lighthouse.dock.tech no longer resolves.'
+image: https://dock.tech/wp-content/uploads/2024/08/icone-dock.svg
 url: https://raw.githubusercontent.com/api-evangelist/dock/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-12'
 modified: '2026-08-12'
 tags:
-- Company
-apis: []
+- Banking
+- Payments
+- Cards
+- Card Issuing
+- Banking as a Service
+- Financial Services
+- Fintech
+- Pix
+- Digital Accounts
+- Acquiring
+- Anti-Fraud
+- Embedded Finance
+- Brazil
+- Latin America
+apis:
+- aid: dock:caradhras
+  name: Dock Caradhras API
+  description: 'Dock''s financial infrastructure API, branded Caradhras, covering card issuing
+    and processing, digital accounts, transfers, Pix, bank slips and acquiring. The gateway is
+    live at api.caradhras.io (AWS API Gateway) and answers every unauthenticated request with
+    HTTP 430 and an x-dock-errortype: AuthorizationError header. The reference is published in
+    a private ReadMe developer hub at developers.dock.tech that is not readable without an
+    account, so no machine-readable OpenAPI is publicly available.'
+  humanURL: https://developers.dock.tech/
+  baseURL: https://api.caradhras.io
+  tags:
+  - Banking
+  - Payments
+  - Cards
+  - Card Issuing
+  - Pix
+  - Digital Accounts
+  properties:
+  - type: DeveloperPortal
+    url: https://developers.dock.tech/
+  - type: Conventions
+    url: conventions/dock-conventions.yml
+  - type: ErrorCatalog
+    url: errors/dock-problem-types.yml
+  - type: RateLimits
+    url: rate-limits/dock-rate-limits.yml
+  - type: Plans
+    url: plans/dock-plans-pricing.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/dock-domain-security.yml
 - type: Website
+  url: https://dock.tech/
+- type: DeveloperPortal
+  url: https://developers.dock.tech/
+- type: Blog
+  url: https://dock.tech/fluid/
+- type: GitHubOrganization
+  url: https://github.com/dock-tech
+- type: Support
+  url: https://dock.tech/sac/
+- type: PrivacyPolicy
+  url: https://dock.tech/privacidade/politica-de-privacidade/
+- type: SecondaryMarket
   url: https://www.hiive.com/securities/dock-stock
+- type: LLMsTxt
+  url: llms/dock-llms.txt
+- type: Conformance
+  url: conformance/dock-conformance.yml
+- type: Compliance
+  url: conformance/dock-conformance.yml
+- type: Lifecycle
+  url: lifecycle/dock-lifecycle.yml
+- type: Conventions
+  url: conventions/dock-conventions.yml
+- type: ErrorCatalog
+  url: errors/dock-problem-types.yml
+- type: Packages
+  url: packages/dock-packages.yml
+- type: Plans
+  url: plans/dock-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/dock-rate-limits.yml
+x-enrichment:
+  date: '2026-08-12'
+  status: minimal
+  artifacts_added: 11
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: partner-login
+  detail: >-
+    Every path on Dock's developer hub developers.dock.tech 302s to the ReadMe dashboard
+    login (dash.readme.com/to/dock-tech), and the formerly public Caradhras reference at
+    lighthouse.dock.tech is now NXDOMAIN, so no OpenAPI or reference page is readable
+    without a Dock-issued account.
+  evidence:
+    - url: https://developers.dock.tech/reference/
+      status: 302
+    - url: https://lighthouse.dock.tech/
+      status: 0
+    - url: https://api.caradhras.io/openapi.json
+      status: 430
+    - url: https://dock.tech/llms.txt
+      status: 200
+  checked: '2026-08-12'

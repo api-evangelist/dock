@@ -1,0 +1,86 @@
+generated: '2026-08-12'
+method: searched
+source: https://dock.tech/sobre/transparencia-e-conformidade/
+docs:
+- https://dock.tech/sobre/transparencia-e-conformidade/
+- https://dock.tech/seguranca-da-informacao/
+- https://dock.tech/politica-de-seguranca-da-informacao/
+note: >-
+  Dock publishes a named certification and regulatory list on its public transparency and
+  compliance page. Nothing below is inferred — each entry is a certification or regime the
+  company names on its own site. No API-protocol conformance (OAuth 2.0 profiles, OIDC,
+  FAPI, Open Finance Brasil endpoints) could be asserted, because the developer reference at
+  developers.dock.tech redirects anonymous visitors to a login and no OpenAPI is public.
+certifications:
+- id: iso-22301
+  name: ISO/IEC 22301 — Business Continuity Management
+  conforms: true
+  evidence: >-
+    Listed by name on https://dock.tech/sobre/transparencia-e-conformidade/ ("Certificação
+    que especifica as práticas recomendadas para a Gestão de Continuidade de Negócios").
+- id: iso-27001
+  name: ISO/IEC 27001 — Information Security Management
+  conforms: true
+  evidence: >-
+    Listed by name on https://dock.tech/sobre/transparencia-e-conformidade/.
+- id: iso-27701
+  name: ISO/IEC 27701 — Privacy Information Management
+  conforms: true
+  evidence: >-
+    Listed by name on https://dock.tech/sobre/transparencia-e-conformidade/.
+- id: pci-dss
+  name: PCI DSS — Payment Card Industry Data Security Standard
+  conforms: true
+  evidence: >-
+    Listed on the transparency page and referenced repeatedly in the published information
+    security policy at https://dock.tech/politica-de-seguranca-da-informacao/. Certification
+    level and assessment date are not published.
+- id: pci-pin
+  name: PCI PIN Security
+  conforms: true
+  evidence: >-
+    Listed by name on https://dock.tech/sobre/transparencia-e-conformidade/ for secure
+    management, processing and transmission of PIN data.
+- id: isae-3402
+  name: ISAE 3402 — Assurance report on service organisation controls
+  conforms: true
+  evidence: >-
+    Listed by name on https://dock.tech/sobre/transparencia-e-conformidade/ as an independent
+    third-party audit of internal control effectiveness. The report itself is not public.
+regulatory:
+- id: bacen-payment-institution
+  name: Banco Central do Brasil — regulated payment institution (bank code 301)
+  conforms: true
+  evidence: >-
+    "DOCK - PAYMENT INSTITUTION REGULATED BY BACEN" on
+    https://dock.tech/en/information-security ; bank code 301 stated on https://dock.tech/en/.
+- id: lgpd
+  name: LGPD — Lei Geral de Proteção de Dados
+  conforms: true
+  evidence: >-
+    Privacy portal and per-entity privacy policies published at
+    https://dock.tech/privacidade/ (Dock Instituição de Pagamento S.A., Dock Tecnologia S.A.,
+    Dock Soluções em Meios de Pagamentos S.A.).
+api_standards:
+- id: oauth2
+  conforms: unknown
+  evidence: >-
+    Not determinable. api.caradhras.io and auth.caradhras.io answer HTTP 430
+    "access denied" to every anonymous request, including
+    /.well-known/oauth-authorization-server and /.well-known/openid-configuration.
+- id: oidc
+  conforms: unknown
+  evidence: OIDC discovery document unreachable (430) on auth.caradhras.io.
+- id: open-finance-brasil
+  conforms: unknown
+  evidence: >-
+    Dock markets "open finance" as a banking capability on https://dock.tech/en/ but publishes
+    no conformance statement, directory participant ID, or public endpoint list.
+- id: rfc9457
+  conforms: false
+  evidence: >-
+    Observed live error bodies on api.caradhras.io are {"error": "access denied"} with
+    content-type application/json — not application/problem+json.
+published_certifications_count: 6
+trust_center: null
+bug_bounty: null

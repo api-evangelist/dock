@@ -1,0 +1,45 @@
+generated: '2026-08-12'
+method: probed
+source: >-
+  live unauthenticated HTTP probes of https://api.caradhras.io, https://auth.caradhras.io and
+  https://developers.dock.tech on 2026-08-12
+documented_publicly: false
+note: >-
+  Dock's authentication model is NOT publicly documented and this artifact does not claim
+  otherwise — no `Authentication` pointer is wired into apis.yml for this provider, because
+  the scoring check reads "authentication is documented" and it is not. What follows is only
+  what could be observed anonymously.
+schemes: []
+observed:
+  challenge_status: 430
+  www_authenticate: false
+  error_type_header: 'x-dock-errortype: AuthorizationError'
+  body: '{"error": "access denied"}'
+  note: >-
+    The gateway rejects anonymous traffic before routing and returns no WWW-Authenticate
+    header, so a client cannot discover the scheme (apiKey vs http bearer vs oauth2) from the
+    wire at all.
+discovery_attempts:
+- url: https://auth.caradhras.io/.well-known/openid-configuration
+  status: 430
+- url: https://auth.caradhras.io/.well-known/oauth-authorization-server
+  status: 430
+- url: https://api.caradhras.io/.well-known/openid-configuration
+  status: 430
+- url: https://api.caradhras.io/oauth2/token
+  status: 430
+- url: https://developers.dock.tech/reference/
+  status: 302
+  redirect: https://dash.readme.com/to/dock-tech?redirect=%2Freference%2F
+inference:
+  auth_host_exists: true
+  auth_host: https://auth.caradhras.io
+  note: >-
+    A dedicated auth host resolves and serves TLS, which is consistent with a token-issuing
+    endpoint, but the scheme, grant types, and scope model are all unverifiable from outside.
+    Nothing is asserted.
+recommendation_to_provider: >-
+  Publish the OAuth authorization-server metadata (or an OIDC discovery document) anonymously
+  and allow /.well-known/ through the WAF. Discovery documents are designed to be public and
+  gating them buys no security while making the API undiscoverable to every SDK generator and
+  agent runtime.

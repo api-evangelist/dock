@@ -1,0 +1,43 @@
+generated: '2026-08-12'
+method: searched
+source: >-
+  registry.npmjs.org, pypi.org, github.com/dock-tech — searched 2026-08-12
+official_package_count: 0
+note: >-
+  Dock publishes NO first-party client libraries in any public package registry. The
+  dock-tech GitHub organisation holds three repositories and all three are forks of Jenkins /
+  GitHub CI plugins (splunk-devops-plugin, github-branch-source-plugin,
+  github-actions-integration) — none is a Dock API SDK. If Dock ships SDKs to customers, they
+  are distributed inside the private developer hub at developers.dock.tech and are therefore
+  not verifiable from outside. No `SDKs` pointer is emitted, because sdk_count asserts
+  first-party client libraries and there are none.
+packages:
+- language: javascript
+  registry: npm
+  name: caradhras
+  url: https://www.npmjs.com/package/caradhras
+  repository: https://github.com/jesobreira/caradhras
+  official: false
+  version: 1.0.0
+  published: '2019-12-11'
+  description: SDK for integrating with Caradhras (Conductor) BAAS API
+  note: >-
+    Community SDK by an unaffiliated author (Jefrey S. Santos), not Dock. Exactly one version
+    has ever been published and it has not been touched since 2019-12-11 — more than six
+    years before this check, and before the company completed its rebrand from Conductor to
+    Dock. Treat as abandoned; it is recorded here as evidence of the gap, not as a usable
+    client.
+registries_checked:
+- registry: npm
+  query: caradhras, dock-tech, dock sdk
+  first_party_hits: 0
+- registry: pypi
+  query: caradhras, dock-sdk, docktech
+  status: 404 on all
+  first_party_hits: 0
+- registry: github
+  org: https://github.com/dock-tech
+  public_repos: 3
+  first_party_sdk_repos: 0
+pointers_emitted:
+- Packages

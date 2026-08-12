@@ -1,0 +1,96 @@
+generated: '2026-08-12'
+method: probed
+source: >-
+  live unauthenticated HTTP responses from https://api.caradhras.io and
+  https://auth.caradhras.io on 2026-08-12
+note: >-
+  Dock publishes no public API reference — developers.dock.tech is a private ReadMe hub that
+  302s anonymous visitors to dash.readme.com. Everything recorded here was observed on the
+  wire from the live gateway; every convention that could not be observed anonymously is
+  recorded as unknown rather than guessed. In particular NOTHING is asserted about
+  idempotency, pagination, expansion, or versioning, and no Idempotency pointer is emitted.
+surfaces:
+  api_host: https://api.caradhras.io
+  auth_host: https://auth.caradhras.io
+  gateway: AWS API Gateway (x-amz-apigw-id, x-amzn-requestid present on every response)
+  docs: https://developers.dock.tech/ (private ReadMe hub — 302 to login)
+  openapi: null
+
+auth_style:
+  observed: >-
+    Every anonymous request to any path returns HTTP 430 with
+    x-dock-errortype: AuthorizationError and x-amzn-errortype: ForbiddenException.
+    No WWW-Authenticate header is returned, so the challenge is non-standard and a client
+    cannot discover the scheme from the response.
+  scheme: unknown (not publicly documented; no WWW-Authenticate on 430)
+  www_authenticate: false
+
+request_id_tracing:
+  supported: true
+  response_headers:
+  - x-dock-requestid
+  - x-amzn-requestid
+  - x-amz-apigw-id
+  note: >-
+    x-dock-requestid and x-amzn-requestid carry the same UUID on every observed response —
+    a genuine per-request correlation id an integrator can quote in support. Whether a
+    client-supplied request id is honoured on the way in is not publicly documented.
+  evidence: >-
+    x-dock-requestid: 0c76d85a-c7d5-41f7-a8d4-4c8322d5ad7b observed on GET
+    https://api.caradhras.io/ (HTTP 430), 2026-08-12.
+
+error_envelope:
+  http_status_observed: 430
+  body:
+    content_type: application/json
+    shape: '{"error": "<message>"}'
+    example_observed: '{"error": "access denied"}'
+  headers:
+  - name: x-dock-errortype
+    observed_value: AuthorizationError
+    note: Dock's own error classification, returned alongside the AWS one.
+  - name: x-dock-errorcode
+    observed_value: ''
+    note: Present but empty on anonymous rejections; carries a code on authenticated errors.
+  - name: x-dock-errormessage
+    observed_value: ''
+    note: Present but empty on anonymous rejections.
+  - name: x-amzn-errortype
+    observed_value: ForbiddenException
+  rfc9457: false
+  note: >-
+    Dock signals errors in BOTH a JSON body and a set of x-dock-* headers. The header trio
+    (x-dock-errortype / x-dock-errorcode / x-dock-errormessage) is the machine-readable
+    surface; the body is a bare {"error": string}. It is not RFC 9457 problem+json.
+    HTTP 430 is not a registered IANA status code — a generic HTTP client will treat it as
+    an unclassified 4xx, which is a real interoperability cost for agents and SDKs.
+
+idempotency:
+  supported: unknown
+  header: null
+  note: >-
+    Not observable anonymously and not publicly documented. NOT asserted — no Idempotency
+    pointer is emitted for this provider.
+
+pagination:
+  style: unknown
+  note: Not observable anonymously; the reference is behind a login.
+
+versioning:
+  style: unknown
+  note: >-
+    No version segment could be confirmed. GET https://api.caradhras.io/v1 returns the same
+    430 as every other path, so the gateway rejects before routing and reveals nothing about
+    the path layout.
+
+rate_limit_signalling:
+  headers_observed: []
+  note: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After header appears on any observed response.
+    See rate-limits/dock-rate-limits.yml.
+
+cross_links:
+- errors/dock-problem-types.yml
+- authentication/dock-authentication.yml
+- rate-limits/dock-rate-limits.yml
+- lifecycle/dock-lifecycle.yml

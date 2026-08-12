@@ -1,0 +1,24 @@
+generated: '2026-08-12'
+method: searched
+source: https://dock.tech/ (full page sitemap walked 2026-08-12)
+plan_count: 0
+currency: null
+note: >-
+  Dock publishes no pricing, plans, or rate card of any kind. The full page sitemap
+  (https://dock.tech/page-sitemap.xml, 37 pages) contains no pricing, plans, or "planos"
+  page, and the product pages (dock-one, servicos-financeiros, nova-adquirencia,
+  tokenizacao, plataforma-de-dados) all terminate in a "fale com a Dock" contact form. This
+  is an enterprise contact-sales motion: commercial terms are negotiated per client and never
+  quoted publicly.
+plans: []
+evidence:
+- url: https://dock.tech/page-sitemap.xml
+  status: 200
+  finding: no pricing/plans page in the sitemap
+- url: https://dock.tech/dock-one/
+  status: 200
+  finding: product page ends in a contact-sales form, no price
+- url: https://developers.dock.tech/
+  status: 302
+  finding: developer hub redirects to login, so any in-docs pricing is unreachable too
+sales_gate: true

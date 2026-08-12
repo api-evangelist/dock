@@ -1,0 +1,46 @@
+generated: '2026-08-12'
+method: probed
+source: >-
+  live unauthenticated responses from https://api.caradhras.io and https://auth.caradhras.io,
+  plus a search of every public dock.tech page — 2026-08-12
+limit_count: 0
+rate_limits: []
+note: >-
+  Dock documents no rate limits publicly and emits no rate-limit signalling on any response
+  reachable without credentials. This is an honest zero, not an unchecked field: the docs that
+  would carry the numbers are inside a private ReadMe hub, and the runtime headers that would
+  carry the signal are absent from every observed response.
+response_headers:
+  observed: []
+  checked_for:
+  - X-RateLimit-Limit
+  - X-RateLimit-Remaining
+  - X-RateLimit-Reset
+  - RateLimit
+  - RateLimit-Policy
+  - Retry-After
+  finding: none present on any of the 10 paths probed across the two hosts
+exhaustion_status_code: unknown
+evidence:
+- url: https://api.caradhras.io/
+  status: 430
+  headers_returned:
+  - date
+  - content-type
+  - content-length
+  - x-amzn-requestid
+  - x-dock-errormessage
+  - x-dock-requestid
+  - x-amzn-errortype
+  - x-dock-errorcode
+  - x-amz-apigw-id
+  - x-dock-errortype
+- url: https://api.caradhras.io/v1
+  status: 430
+- url: https://developers.dock.tech/
+  status: 302
+  finding: docs hub redirects to login; any published limits are behind it
+recommendation_to_provider: >-
+  Return RFC 9331-style RateLimit / RateLimit-Policy headers (or the X-RateLimit-* trio) and
+  Retry-After on throttled responses, and publish the per-key and per-account windows in the
+  public reference. An agent cannot pace itself against a number it cannot read at runtime.

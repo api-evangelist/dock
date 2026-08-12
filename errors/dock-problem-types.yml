@@ -1,0 +1,53 @@
+generated: '2026-08-12'
+method: probed
+source: >-
+  live unauthenticated HTTP responses from https://api.caradhras.io and
+  https://auth.caradhras.io on 2026-08-12
+format: proprietary
+rfc9457: false
+note: >-
+  Dock publishes no public error reference — the reference lives in a private ReadMe hub at
+  developers.dock.tech. This catalog is therefore NOT the provider's published catalog: it is
+  the error envelope observed on the wire from the live Caradhras gateway, plus the one error
+  type that could be triggered anonymously. It is deliberately thin; a future round should
+  replace it with the published reference if Dock opens the hub.
+envelope:
+  content_type: application/json
+  body_shape: '{"error": "<message>"}'
+  headers:
+  - x-dock-errortype
+  - x-dock-errorcode
+  - x-dock-errormessage
+  - x-dock-requestid
+  correlation_id_header: x-dock-requestid
+problem_types:
+- id: authorization-error
+  status: 430
+  error_type: AuthorizationError
+  title: Access denied
+  body: '{"error": "access denied"}'
+  aws_error_type: ForbiddenException
+  detail: >-
+    Returned for any request that reaches the gateway without valid Dock credentials. Observed
+    on / , /health, /v1, /accounts, /oauth2/token, /openapi.json and every /.well-known/ path
+    on both api.caradhras.io and auth.caradhras.io.
+  remediation: >-
+    Obtain Caradhras API credentials through a Dock commercial engagement; the scheme is not
+    publicly documented and no WWW-Authenticate header is returned to discover it.
+  method: probed
+  evidence:
+    url: https://api.caradhras.io/
+    http_status: 430
+    fetched: '2026-08-12'
+observations:
+- >-
+  HTTP 430 is not an IANA-registered status code. Generic HTTP clients, SDK generators and
+  agent runtimes have no semantics for it and will fall through to an unclassified-4xx path
+  instead of an auth-retry path. A 401 with WWW-Authenticate would be the interoperable
+  equivalent.
+- >-
+  x-dock-errorcode and x-dock-errormessage are emitted but EMPTY on anonymous rejections, so
+  the machine-readable code channel exists and is unpopulated at this layer.
+coverage:
+  types_documented_by_provider: 0
+  types_observed: 1

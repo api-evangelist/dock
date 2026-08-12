@@ -1,0 +1,76 @@
+generated: '2026-08-12'
+method: probed
+source: >-
+  https://status.dock.tech/ , https://dock.status.page/ , https://developers.dock.tech/ ,
+  https://lighthouse.dock.tech/ — probed 2026-08-12
+note: >-
+  Dock operates a status page and a developer hub, but both are authenticated. No public
+  versioning policy, deprecation policy, Sunset/Deprecation header commitment, SLA, or
+  changelog could be found. No StatusPage or Deprecation pointer is emitted, because both
+  checks assert the provider PUBLISHES that surface and in Dock's case a reader without an
+  account sees a login form.
+
+status_page:
+  url: https://status.dock.tech/
+  redirects_to: https://dock.status.page/
+  public: false
+  status_observed: 200
+  detail: >-
+    status.dock.tech serves a meta-refresh to https://dock.status.page/, which 302s to
+    /login?returnUrl=%2f. There is no anonymously readable component list, incident history,
+    or subscribe surface.
+  pointer_emitted: false
+
+versioning:
+  policy_published: false
+  scheme: unknown
+  detail: >-
+    No public versioning policy. GET https://api.caradhras.io/v1 returns the same HTTP 430 as
+    every other path, so even the presence of a /v1 prefix cannot be confirmed anonymously.
+
+deprecation:
+  policy_published: false
+  sunset_header: unknown
+  deprecation_header: unknown
+  rfc8594: unknown
+  detail: No deprecation or sunset policy is published on any public Dock property.
+  pointer_emitted: false
+
+sla:
+  published: false
+  detail: >-
+    No public SLA or uptime commitment. Dock markets availability figures in sales material
+    but publishes no contractual target a non-customer can read.
+
+changelog:
+  published: false
+  detail: >-
+    No dated API changelog on any public host. https://dock.tech/fluid/ is a marketing and
+    thought-leadership blog, not a release feed, so no ChangeLog artifact or pointer is
+    emitted.
+
+retired_surfaces:
+- host: lighthouse.dock.tech
+  was: >-
+    The public "Lighthouse" reference for the Caradhras APIs — Google still indexes reference
+    pages such as
+    https://lighthouse.dock.tech/docs/cards-and-digital-banking-api-reference/85416f5d06a72-data-api
+  status: NXDOMAIN
+  checked: '2026-08-12'
+  detail: >-
+    The host no longer resolves (NXDOMAIN via 8.8.8.8). Dock's API reference used to be
+    publicly readable here and is now only available inside the private ReadMe hub at
+    developers.dock.tech. This is a regression in public discoverability, not an absence.
+- host: caradhras.dock.tech
+  status: TLS handshake failure (tlsv1 alert internal error); HTTP returns 404
+  checked: '2026-08-12'
+  detail: >-
+    Resolves to Meteor Galaxy ingress but serves no valid certificate for the name. Another
+    decommissioned Lighthouse/Caradhras docs host.
+- host: docs.caradhras.io
+  status: NXDOMAIN
+  checked: '2026-08-12'
+  detail: Former Caradhras documentation host; no longer resolves.
+
+pointers_emitted:
+- Lifecycle

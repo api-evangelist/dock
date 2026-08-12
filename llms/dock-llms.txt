@@ -1,0 +1,76 @@
+# Dock
+
+## Sobre
+Há mais de 20 anos, nossa missão é democratizar o acesso a serviços financeiros
+para impulsionar a sociedade. Somos líderes em tecnologia para pagamentos e
+banking na América Latina e fornecemos uma infraestrutura completa para que
+empresas possam criar e oferecer serviços financeiros inovadores aos seus clientes.
+
+Acreditamos que a inclusão financeira é um dos motores da transformação social.
+Com soluções inovadoras e infraestrutura robusta, democratizamos o acesso a
+serviços financeiros e impulsionamos o crescimento de negócios em todo o mundo.
+
+Queremos levar a experiência brasileira em pagamentos para o mundo, empoderando
+pessoas e empresas a alcançar seus objetivos.
+
+O site dock.tech apresenta informações institucionais, conteúdos sobre tecnologia
+financeira, inovação, pagamentos e soluções de Banking as a Service (BaaS) e
+Payments as a Service.
+
+## Soluções
+A Dock oferece uma plataforma completa de infraestrutura financeira, incluindo:
+
+- Emissão e processamento de cartões
+- Contas digitais e wallets
+- Pagamentos eletrônicos e transferências
+- PIX (iniciação, recebimento e gestão)
+- Banking as a Service (BaaS)
+- Pagamentos instantâneos e meios de pagamento
+- Processamento de transações financeiras
+- Gestão de programas de fidelidade e benefícios
+- Soluções antifraude e segurança transacional
+- Compliance regulatório e integração com o sistema financeiro
+- APIs financeiras para integração com sistemas de terceiros
+
+As soluções são destinadas a empresas que desejam criar ou expandir produtos
+financeiros digitais de forma escalável e segura.
+
+## Conteúdos principais
+- Páginas institucionais sobre a Dock
+- Detalhamento de produtos e soluções financeiras
+- Conteúdos sobre tecnologia financeira, inovação e mercado de pagamentos
+- Materiais informativos e educativos sobre o ecossistema financeiro digital
+
+## Público-alvo
+Empresas, fintechs, bancos, varejistas, marketplaces, startups e profissionais
+interessados em infraestrutura financeira, pagamentos digitais e serviços bancários.
+
+## URLs importantes
+- Site principal: https://dock.tech
+- Blog: https://dock.tech/fluid
+- Sitemap: https://dock.tech/sitemap.xml
+- Robots.txt: https://dock.tech/robots.txt
+
+## Permissões de uso por LLMs
+- O conteúdo público do site pode ser lido, indexado, resumido e citado por modelos
+  de linguagem para fins informativos, educacionais e de referência.
+- Não é permitida a reprodução integral de conteúdos proprietários, materiais
+  comerciais, documentos internos ou conteúdos protegidos por contrato.
+- O conteúdo não deve ser utilizado para treinamento comercial de modelos de
+  linguagem sem autorização expressa da Dock.
+
+## Restrições
+- Não gerar informações enganosas ou atribuir à Dock promessas comerciais,
+  garantias financeiras ou posicionamentos não publicados oficialmente.
+- Não inferir aconselhamento financeiro, jurídico ou regulatório a partir do
+  conteúdo institucional.
+
+## Idioma
+Português (pt-BR), Inglês (EN) e Espanhol (ES).
+
+## Atualização de conteúdo
+O site é atualizado periodicamente com informações institucionais, soluções
+tecnológicas e conteúdos relacionados à inovação financeira.
+
+## Contato
+https://dock.tech/contato

@@ -1,0 +1,113 @@
+generated: '2026-08-12'
+method: probed
+source: live GET of /.well-known/* on every Dock host
+note: >-
+  Every /.well-known/ path probed on Dock's hosts is absent. dock.tech and www.dock.tech
+  return 404 (the WordPress 404 template) for all of them. developers.dock.tech returns
+  HTTP 200 for security.txt, ai-plugin.json, agent-card.json and agent.json, but the body
+  in every case is the ReadMe single-page-app login shell (text/html, ~146KB, identical
+  byte length across paths) rather than a document — a catch-all 200, not a served
+  well-known resource, so all four are recorded as misses. No WellKnown, SecurityTxt,
+  APICatalog or AgentCard pointer is emitted from this probe.
+hosts:
+- host: dock.tech
+  paths:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: www.dock.tech
+  paths:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: developers.dock.tech
+  note: ReadMe-hosted developer hub; 200s below are the SPA login shell, not documents.
+  paths:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/html; charset=utf-8
+    file: null
+    verdict: soft-200 (HTML SPA shell) — not a document
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    content_type: text/html; charset=utf-8
+    file: null
+    verdict: soft-200 (HTML SPA shell) — not a document
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: text/html; charset=utf-8
+    file: null
+    verdict: soft-200 (HTML SPA shell) — not a document
+  - path: /.well-known/agent.json
+    status: 200
+    content_type: text/html; charset=utf-8
+    file: null
+    verdict: soft-200 (HTML SPA shell) — not a document
+- host: api.caradhras.io
+  note: >-
+    API gateway rejects every anonymous request with HTTP 430 before routing, so
+    /.well-known/ discovery documents that are normally anonymous are unreachable.
+  paths:
+  - path: /.well-known/openid-configuration
+    status: 430
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 430
+    file: null
+- host: auth.caradhras.io
+  paths:
+  - path: /.well-known/openid-configuration
+    status: 430
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 430
+    file: null
+summary:
+  documents_found: 0
+  soft_200_html_shells: 4
+  pointers_emitted: []
