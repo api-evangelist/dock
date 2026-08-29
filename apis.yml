@@ -11,6 +11,17 @@ description: 'Dock is a Latin American financial technology infrastructure provi
   gateway; the developer reference at developers.dock.tech is a private ReadMe hub that
   redirects anonymous visitors to a login, and the previously public Caradhras reference at
   lighthouse.dock.tech no longer resolves.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://dock.tech/wp-content/uploads/2024/08/icone-dock.svg
 url: https://raw.githubusercontent.com/api-evangelist/dock/refs/heads/main/apis.yml
 x-type: company
