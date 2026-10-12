@@ -1,0 +1,37 @@
+edges:
+- partner_name: Open Finance Brasil
+  partner: null
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://data.directory.openbankingbrasil.org.br/participants
+  contract_reference:
+    register: Open Finance Brasil directory (Banco Central do Brasil)
+    spec_file: null
+    role: participant
+    registered_name: DOCK INSTITUICAO DE PAGAMENTO S.A.
+    register_id: b20c07c6-ec63-5add-bdef-e1023017f166
+    matched_domain: dock.tech
+    api_families:
+    - accounts
+    - admin
+    - consents
+    - customers-business
+    - customers-personal
+    - discovery_outages
+    - discovery_status
+    - enrollments
+    - payments-consents
+    - payments-pix
+    - payments-pix-recurring-payments
+    - payments-pix-recurring-payments-automatic
+    - payments-recurring-consents
+    - payments-recurring-consents-automatic
+    - resources
+    detected_by: sweep-standard-registers.py
+    detected: '2026-10-12'
+generated: '2026-10-12'
+method: searched
+checked:
+- https://data.directory.openbankingbrasil.org.br/participants
