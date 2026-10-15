@@ -38,3 +38,92 @@
     detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
+- slug: dock-open-finance-brasil-functional-certification
+  label: Open Finance Brasil functional certification
+  partner_name: Open Finance Brasil functional certification
+  category: open finance conformance (Brazil)
+  type: register
+  channel: regulator-register
+  evidence: https://data.directory.openbankingbrasil.org.br/participants
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: Open Finance Brasil directory, per-family CertificationStatus (submissions in github.com/OpenBanking-Brasil/conformance)
+    spec_file: null
+    standard: Open Finance Brasil
+    role: certified-participant
+    registrations:
+    - registered_name: DOCK INSTITUICAO DE PAGAMENTO S.A.
+      register_id: b20c07c6-ec63-5add-bdef-e1023017f166
+      cnpj: '13370835000185'
+      matched_domain: dock.tech
+      matched_by: domain
+    certified_products:
+    - product: accounts
+      families:
+      - accounts
+      status: Self-Certified
+      expires: '2027-08-07'
+      certification_uri: https://github.com/OpenBanking-Brasil/conformance/blob/main/submissions/functional/accounts/2.5.1/13370835_Opus-Open-Bank-V1_accounts_v2.5.1_25-07-2026.json
+    - product: customer-data
+      families:
+      - consents
+      - customers-business
+      - customers-personal
+      - resources
+      status: Self-Certified
+      expires: '2027-08-07'
+      certification_uri: https://github.com/OpenBanking-Brasil/conformance/blob/main/submissions/functional/business/2.2.0/13370835_opus-open-banking-v1_business_v2.2.0_26-06-2025.json
+    - product: payments
+      families:
+      - enrollments
+      - payments-consents
+      - payments-pix
+      status: Self-Certified
+      expires: '2027-10-01'
+      certification_uri: https://github.com/OpenBanking-Brasil/conformance/blob/main/submissions/functional/enrollments/2.2.0/13370835_Opus-Open-Banking-V1_enrollments_v2.2.0_09-02-2026.json
+    - product: recurring-payments
+      families:
+      - payments-pix-recurring-payments
+      - payments-pix-recurring-payments-automatic
+      - payments-recurring-consents
+      - payments-recurring-consents-automatic
+      status: Self-Certified
+      expires: '2027-08-07'
+      certification_uri: https://github.com/OpenBanking-Brasil/conformance/blob/main/submissions/functional/automatic-payments/2.0.0/13370835_Opus-Open-Banking-v1_automatic-payments_v2.0.0_17-04-2025.json
+    signal_note: one entry per PRODUCT TYPE, lapsed flagged; family counts are context, never read
+    detected_by: sweep-latam-open-finance.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: dock-pix-banco-central-do-brasil
+  label: Pix (Banco Central do Brasil)
+  partner_name: Pix (Banco Central do Brasil)
+  category: instant payments (Brazil)
+  type: register
+  channel: regulator-register
+  evidence: https://www.bcb.gov.br/estabilidadefinanceira/participantespix
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: Pix participants (Banco Central do Brasil, https://www.bcb.gov.br/content/estabilidadefinanceira/participantes_pix/lista-participantes-instituicoes-em-adesao-pix-20261015.csv)
+    spec_file: null
+    standard: Pix
+    role: pix-participant
+    registrations:
+    - registered_name: DOCK IP S.A.
+      ispb: '13370835'
+      cnpj: 13.370.835/0001-85
+      institution_type: Instituição de Pagamento
+      spi_participation: Direta
+      pix_participation: Obrigatória
+      pix_modality: Provedor de Conta Transacional
+      payment_initiation: true
+      matched_domain: dock.tech
+      matched_by: domain
+      identity: Open Finance Brasil directory, same CNPJ 13370835000185 ('DOCK INSTITUICAO DE PAGAMENTO S.A.')
+    signal_note: 'participation only: the domain comes from a labelled lookup (registrations[].identity)'
+    detected_by: sweep-latam-open-finance.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
