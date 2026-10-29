@@ -64,5 +64,100 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Dock is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.hiive.com/securities/dock-stock
+Dock is a Latin American financial technology infrastructure provider — formerly Conductor Technology — that delivers card issuing and processing, core banking, digital accounts and wallets, Pix instant payments, bank slips, acquiring, loyalty/benefits and transactional anti-fraud from a single cloud-native platform marketed as Dock One. Dock operates in Brazil as a payment institution regulated by the Banco Central do Brasil (bank code 301) and states that it serves more than 400 companies across 11 countries, processes roughly R$1.4 trillion in annual card volume and supports around 70 million active digital accounts. Its API estate is branded Caradhras and is reached through the api.caradhras.io gateway; the developer reference at developers.dock.tech is a private ReadMe hub that redirects anonymous visitors to a login, and the previously public Caradhras reference at lighthouse.dock.tech no longer resolves.
+
+**Areas:** Banking · Payments · Cards · Card Issuing · Banking as a Service · Financial Services · Fintech · Pix · Digital Accounts · Acquiring · Fraud Prevention · Embedded Finance
+
+## Dock on APIs.io
+
+Everything profiled for Dock is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/dock/](https://apis.io/providers/dock/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Dock Caradhras API](https://apis.io/apis/dock/caradhras/) — Dock's financial infrastructure API, branded Caradhras, covering card issuing and processing, digital accounts, transfers, Pix, bank slips and acquiring.…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Dock Authentication](https://apis.io/security/dock/dock-authentication/)
+- [Dock Domain Security](https://apis.io/security/dock/dock-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Dock Plans Pricing](https://apis.io/plans/dock/dock-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Dock Rate Limits](https://apis.io/rate-limits/dock/dock-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://dock.tech/)
+- [Support](https://dock.tech/sac/)
+- [Blog](https://dock.tech/fluid/)
+- [Privacy policy](https://dock.tech/privacidade/politica-de-privacidade/)
+- [GitHub](https://github.com/dock-tech)
+
+## API Evangelist rating
+
+**Kin Score 13.5** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 11.9 |
+| Access clarity | 18.4 |
+
+**Agent readiness 5.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 17.9** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/dock/](https://apis.io/providers/dock/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Dock: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/dock/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
